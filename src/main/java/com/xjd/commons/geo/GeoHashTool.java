@@ -37,4 +37,16 @@ public abstract class GeoHashTool {
         Point[] points = rangeOfHashBlock(geoHash);
         return new Point((points[0].getLng() + points[1].getLng()) / 2, (points[0].getLat() + points[1].getLat()) / 2);
     }
+
+
+    /**
+     * 返回给定的hash块周边相邻的hash块的geohash值
+     * @param geoHash
+     * @param adjacentDirections 相邻的hash块方位, 可选值有 L,LU,U,RU,R,RD,D,LD 多个值使用逗号分隔, 空表示所有邻近点, 顺序如前面所示
+     * @return 邻近的Hash块的GeoHash值数组
+     */
+    public static String[] adjacentHashBlock(String geoHash, String adjacentDirections) {
+        if (adjacentDirections == null || "".equals(adjacentDirections.trim())) adjacentDirections = GeoHashAlgorithm.NEAR_ALL;
+        return GeoHashAlgorithm.getBase32NearPoint(geoHash, adjacentDirections);
+    }
 }
