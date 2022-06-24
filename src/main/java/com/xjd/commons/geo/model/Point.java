@@ -21,7 +21,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "[" + getLng() + ", " + getLat() + "]";
+        return "[" + getLng() + "," + getLat() + "]";
     }
 
     public Point copy() {

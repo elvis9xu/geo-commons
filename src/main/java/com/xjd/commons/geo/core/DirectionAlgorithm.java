@@ -25,4 +25,21 @@ public abstract class DirectionAlgorithm {
         }
     }
 
+    public static double radiansSignedBetweenVector(double[] v1, double[] v2) {
+        double a1 = direction(v1);
+        double a2 = direction(v2);
+        double a = a2 - a1;
+        if (a <= -Math.PI) {
+            return 2 * Math.PI + a; // - |a|
+        }
+        if (a > -Math.PI && a <= Math.PI) {
+            return a;
+        }
+        if (a > Math.PI) {
+            return a - 2 * Math.PI;
+        }
+        // impossible
+        throw new RuntimeException("impossible");
+    }
+
 }
