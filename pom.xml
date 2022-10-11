@@ -28,4 +28,17 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ym-releases</id>
+            <name>ym releases</name>
+            <url>${ym-releases-url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>ym-snapshots</id>
+            <name>ym snapshots</name>
+            <url>${ym-snapshots-url}</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
